@@ -1,8 +1,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var allQuestions: [String] = []
 
-    @IBOutlet weak var viewCategoryBB1: UIView!
+    @IBOutlet private weak var viewCategoryBB1: UIView!
+    @IBOutlet var bgView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,6 @@ class ViewController: UIViewController {
     
     private func setDesignViews() {
         viewCategoryBB1.layer.cornerRadius = 30
-        viewCategoryBB1.backgroundColor = UIColor(red: 237/255.0, green: 237/255.0, blue: 237/255.0, alpha: 1.0)
     }
 }
 
