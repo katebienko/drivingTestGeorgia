@@ -9,10 +9,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="CardCollectionViewCell" id="gTV-IL-0wX" customClass="CardCollectionViewCell" customModule="Driving_Test_Georgia" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="376" height="419"/>
+            <rect key="frame" x="0.0" y="0.0" width="376" height="467"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="376" height="419"/>
+                <rect key="frame" x="0.0" y="0.0" width="376" height="467"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veI-EQ-fPg">
@@ -47,6 +47,12 @@
                             <constraint firstAttribute="height" constant="1" id="dii-RQ-tpK"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZx-wE-Cw0">
+                        <rect key="frame" x="20" y="417" width="336" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,8 +62,11 @@
                 <constraint firstItem="ApI-36-C3x" firstAttribute="top" secondItem="Ddk-8k-nQ3" secondAttribute="bottom" constant="20" id="5sJ-dx-Zl7"/>
                 <constraint firstAttribute="trailing" secondItem="ApI-36-C3x" secondAttribute="trailing" constant="20" id="IX7-A1-rex"/>
                 <constraint firstItem="veI-EQ-fPg" firstAttribute="top" secondItem="QYw-eF-cHW" secondAttribute="bottom" constant="20" id="JBO-a1-vpi"/>
+                <constraint firstItem="JZx-wE-Cw0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="KEx-6V-yDx"/>
                 <constraint firstItem="QYw-eF-cHW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="L8p-IP-1MG"/>
                 <constraint firstItem="veI-EQ-fPg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ZXe-xT-2Oq"/>
+                <constraint firstItem="JZx-wE-Cw0" firstAttribute="top" secondItem="ApI-36-C3x" secondAttribute="bottom" constant="20" id="bPV-tf-Fef"/>
+                <constraint firstAttribute="trailing" secondItem="JZx-wE-Cw0" secondAttribute="trailing" constant="20" id="l8P-9F-Y4F"/>
                 <constraint firstItem="ApI-36-C3x" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="pTL-mO-SYY"/>
                 <constraint firstAttribute="trailing" secondItem="veI-EQ-fPg" secondAttribute="trailing" constant="20" id="peI-yU-qWG"/>
                 <constraint firstItem="QYw-eF-cHW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="quK-CH-AR0"/>
@@ -67,13 +76,14 @@
                 <constraint firstItem="Ddk-8k-nQ3" firstAttribute="top" secondItem="454-q8-Qur" secondAttribute="bottom" constant="20" id="yls-pq-Bep"/>
                 <constraint firstItem="Ddk-8k-nQ3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="zLf-op-Rfk"/>
             </constraints>
-            <size key="customSize" width="463" height="524"/>
+            <size key="customSize" width="463" height="572"/>
             <connections>
                 <outlet property="answer1" destination="Ddk-8k-nQ3" id="gPb-Rh-a0u"/>
                 <outlet property="answer2" destination="ApI-36-C3x" id="Plt-aa-fmt"/>
+                <outlet property="answer3" destination="JZx-wE-Cw0" id="D8f-sJ-M91"/>
                 <outlet property="question" destination="veI-EQ-fPg" id="pIB-Ug-R1X"/>
             </connections>
-            <point key="canvasLocation" x="434.78260869565219" y="184.48660714285714"/>
+            <point key="canvasLocation" x="434.78260869565219" y="200.55803571428569"/>
         </collectionViewCell>
     </objects>
 </document>

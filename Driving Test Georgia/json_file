@@ -6,11 +6,15 @@
     "answers":
     
     [{
-        "text": "Kulas Light",
+        "text": "1",
         "correct": true
     },
     {
-        "text": "dsfsdfs 342342 2es",
+        "text": "2",
+        "correct": false
+    },
+    {
+        "text": "3",
         "correct": false
     }],
   },
@@ -20,11 +24,15 @@
     "question": "Еще вопрос 2",
     "answers":
     [{
-        "text": "dfdsf sdfsdfsd",
+        "text": "111",
         "correct": true
     },
     {
-        "text": "fsdfs23 lsf934kf shfks",
+        "text": "222",
+        "correct": false
+    },
+    {
+        "text": "333",
         "correct": false
     }]
   }
