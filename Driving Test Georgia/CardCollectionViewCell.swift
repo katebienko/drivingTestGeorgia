@@ -11,8 +11,8 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(with tickets: Tickets) {
-        phoneNumber.text = tickets.phone
-        emailLabel.text = tickets.email
-        question.text = tickets.name
+        phoneNumber.text = tickets.answers.answer1
+        emailLabel.text = tickets.image
+        question.text = tickets.question
     }
 }

@@ -1,14 +1,15 @@
 import Foundation
 
 struct Tickets: Codable {
-    let id: Int
-    let name: String
-    let email: String
+    let number: Int
+    let question: String
+    let image: String?
     let answers: Answers
-    let phone: String
 }
 
 struct Answers: Codable {
-    let street: String
-    let zipcode: String
+    let answer1: String
+    let answer2: String
+    let answer3: String?
+    let answer4: String?
 }
