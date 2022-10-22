@@ -1,32 +1,31 @@
 [
   {
     "number": 1,
-    "question": "По какой очередности должны проехать транспортные средства в случае движения по направлению стрелки?",
     "image": "image1.jpg",
-    "answers": {
-      "answer1": "Kulas Light",
-      "answer2": "Apt. 556",
-      "answer3": "Gwenborough",
-      "answer4": "92998-3874",
-      "geo": {
-        "lat": "-37.3159",
-        "lng": "81.1496"
-      }
+    "question": "По какой очередности должны проехать транспортные средства в случае движения по направлению стрелки?",
+    "answers":
+    
+    [{
+        "text": "Kulas Light",
+        "correct": true
     },
+    {
+        "text": "dsfsdfs 342342 2es",
+        "correct": false
+    }],
   },
   {
     "number": 2,
-    "question": "Еще вопрос 2",
     "image": "image2.jpg",
-    "answers": {
-      "answer1": "Victor Plains",
-      "answer2": "Suite 879",
-      "answer3": "Wisokyburgh",
-      "answer4": "90566-7771",
-      "geo": {
-        "lat": "-43.9509",
-        "lng": "-34.4618"
-      }
+    "question": "Еще вопрос 2",
+    "answers":
+    [{
+        "text": "dfdsf sdfsdfsd",
+        "correct": true
     },
+    {
+        "text": "fsdfs23 lsf934kf shfks",
+        "correct": false
+    }]
   }
 ]

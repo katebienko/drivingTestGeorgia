@@ -70,7 +70,7 @@
             <size key="customSize" width="463" height="524"/>
             <connections>
                 <outlet property="answer1" destination="Ddk-8k-nQ3" id="gPb-Rh-a0u"/>
-                <outlet property="emailLabel" destination="ApI-36-C3x" id="ZVE-EQ-JiD"/>
+                <outlet property="answer2" destination="ApI-36-C3x" id="Plt-aa-fmt"/>
                 <outlet property="question" destination="veI-EQ-fPg" id="pIB-Ug-R1X"/>
             </connections>
             <point key="canvasLocation" x="434.78260869565219" y="184.48660714285714"/>
