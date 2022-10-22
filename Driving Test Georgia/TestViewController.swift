@@ -11,10 +11,13 @@ class TestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bgView.backgroundColor = UIColor(red: 69/255.0, green: 43/255.0, blue: 78/255.0, alpha: 1.0)
+        backgroundDesign()
         setupCollectionView()
-        
         loadJSON()
+    }
+    
+    private func backgroundDesign() {
+        bgView.backgroundColor = UIColor(red: 69/255.0, green: 43/255.0, blue: 78/255.0, alpha: 1.0)
     }
     
     private func loadJSON() {
@@ -24,8 +27,7 @@ class TestViewController: UIViewController {
                 let jsonDecoder = JSONDecoder()
                 let tickets = try jsonDecoder.decode([Tickets].self, from: data)
                 self.tickets = tickets
-        
-            //    print(tickets[1])
+                //print(tickets[1])
             } catch {
                 debugPrint(error.localizedDescription)
             }
@@ -33,10 +35,10 @@ class TestViewController: UIViewController {
     }
     
     private func setupCollectionView() {
-        let key = CardCollectionViewCell.reuseIdentifier
-        collectionView.register(UINib(nibName: key, bundle: nil), forCellWithReuseIdentifier: key)
+        collectionView.register(UINib(nibName: "CardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardCollectionViewCell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.layer.cornerRadius = 25
     }
 }
 
@@ -46,7 +48,7 @@ extension TestViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell.reuseIdentifier, for: indexPath) as? CardCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as? CardCollectionViewCell else {
             fatalError()
         }
         
@@ -62,10 +64,10 @@ extension UIViewController: UICollectionViewDelegateFlowLayout {
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return 0
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return 0
     }
 }
