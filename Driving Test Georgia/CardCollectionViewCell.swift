@@ -2,15 +2,19 @@ import UIKit
 
 class CardCollectionViewCell: UICollectionViewCell {
 
-    var answersArray: [(question: String, correct: Bool)] = []
+    var answersArray: [(answer: String, correct: Bool)] = []
 
+    @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var question: UILabel!
-    @IBOutlet weak var answer1: UIButton!
-    @IBOutlet weak var answer2: UILabel!    
+    @IBOutlet weak var answer1: UILabel!
+    @IBOutlet weak var answer2: UILabel!
     @IBOutlet weak var answer3: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        bgView.layer.cornerRadius = 40
+        bgView.backgroundColor = UIColor(red: 244/255.0, green: 243/255.0, blue: 241/255.0, alpha: 1.0)
     }
     
     func setup(with tickets: Tickets) {
@@ -18,19 +22,12 @@ class CardCollectionViewCell: UICollectionViewCell {
             answersArray.append((tickets.answers[i].text, tickets.answers[i].correct))
         }
         answersArray.shuffle()
-        print(answersArray)
+        //print(answersArray)
         
         question.text = tickets.question
-        answer1.setTitle(answersArray[0].question, for: .normal)
-        answer2.text = answersArray[1].question
-        answer3.text = answersArray[2].question
-    }
-    
-    @IBAction func answerTap(_ sender: Any) {
-        if answersArray[0].correct == true {
-            answer1.backgroundColor = .green
-        } else {
-            answer1.backgroundColor = .red
-        }
+        
+        answer1.text = answersArray[0].answer
+        answer2.text = answersArray[1].answer
+        answer3.text = answersArray[2].answer
     }
 }

@@ -11,13 +11,8 @@ class TestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundDesign()
         setupCollectionView()
         loadJSON()
-    }
-    
-    private func backgroundDesign() {
-        bgView.backgroundColor = UIColor(red: 69/255.0, green: 43/255.0, blue: 78/255.0, alpha: 1.0)
     }
     
     private func loadJSON() {
