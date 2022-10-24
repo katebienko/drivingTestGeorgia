@@ -20,12 +20,7 @@ class TestViewController: UIViewController {
         tableView.dataSource = self
         
         loadJSON()
-        setImages()
         designsElements()
-    }
-    
-    private func setImages() {
-        imageView.image = UIImage(named: "1.jpg")
     }
     
     private func designsElements() {
@@ -46,38 +41,67 @@ class TestViewController: UIViewController {
     }
     
     @IBAction func nextButtonPress(_ sender: Any) {
-        if ticketNumber <= tickets.count {
-            questionLabel.text = tickets[ticketNumber].question
-            
-            answersTuples.removeAll()
-            for ans in tickets[ticketNumber].answers {
-                answersTuples.append((ans.text, ans.correct))
-                tableView.reloadData()
-            }
-        }
-
+        tableView.allowsSelection = true
+        
         ticketNumber += 1
+        if ticketNumber <= tickets.count - 1 {
+            tableView.reloadData()
+            answersTuples.removeAll()
+        } else {
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
 }
 
 extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return tickets[ticketNumber].answers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AnswersTableViewCell
 
-        //print(answersTuples[indexPath.row].0)
-        //print(answersTuples[indexPath.row].1)
-        
-        if answersTuples.isEmpty {
-            cell.answerLabel.text = "empty"
-        } else {
-            cell.answerLabel.text = (answersTuples[indexPath.row].0)
+        if ticketNumber <= tickets.count - 1 {
+            questionLabel.text = tickets[ticketNumber].question
+            imageView.image = UIImage(named: "\(tickets[ticketNumber].image ?? "hover.jpg")")
+            
+            for ans in tickets[ticketNumber].answers {
+                answersTuples.append((ans.text, ans.correct))
+            }
+            
+          //  print(answersTuples[indexPath.row].0)
+          //  print(answersTuples[indexPath.row].1)
         }
        
+        cell.answerLabel.text = (answersTuples[indexPath.row].0)
+        cell.selectionStyle = .none
+ 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! AnswersTableViewCell
+        
+        print("!!!")
+        
+        switch answersTuples[indexPath.row].1 {
+        case true:
+            cell.viewAnswerBg.backgroundColor = UIColor(red: 10/255.0, green: 23/255.0, blue: 40/255.0, alpha: 1.0)
+            cell.answerLabel.textColor = .white
+            tableView.allowsSelection = false
+        case false:
+            cell.answerLabel.attributedText = answersTuples[indexPath.row].0.strikeThrough()
+            tableView.allowsSelection = false
+        }
+    }
+}
+
+extension String {
+    func strikeThrough() -> NSAttributedString {
+        let attributeString =  NSMutableAttributedString(string: self)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0,attributeString.length))
+        
+        return attributeString
     }
 }
