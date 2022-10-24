@@ -5,7 +5,7 @@ class ViewController: UIViewController {
     var allQuestions: [String] = []
 
     @IBOutlet private weak var viewCategoryBB1: UIView!
-    @IBOutlet var bgView: UIView!
+    @IBOutlet private var bgView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
