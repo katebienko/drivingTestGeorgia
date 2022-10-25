@@ -5,13 +5,13 @@ class TestViewController: UIViewController {
     var tickets: [Tickets] = []
     var answersTuples: [(answer: String, correct: Bool)] = []
     var ticketNumber = 0
-    var questionAnswers = 0
     
     @IBOutlet private var bgView: UIView!
     @IBOutlet private weak var questionsView: UIView!
     @IBOutlet private weak var questionLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var nextButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,18 +62,17 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AnswersTableViewCell
 
+        cell.answerLabel.textColor = .black
+        cell.viewAnswerBg.backgroundColor = .white
+        cell.answerLabel.attributedText = nil
+        
+        answersTuples.append((tickets[ticketNumber].answers[indexPath.row].text,tickets[ticketNumber].answers[indexPath.row].correct))
+        
         if ticketNumber <= tickets.count - 1 {
             questionLabel.text = tickets[ticketNumber].question
-            imageView.image = UIImage(named: "\(tickets[ticketNumber].image ?? "hover.jpg")")
-            
-            for ans in tickets[ticketNumber].answers {
-                answersTuples.append((ans.text, ans.correct))
-            }
-            
-          //  print(answersTuples[indexPath.row].0)
-          //  print(answersTuples[indexPath.row].1)
+            imageView.image = UIImage(named: "\(String(describing: tickets[ticketNumber].image))")
         }
-       
+
         cell.answerLabel.text = (answersTuples[indexPath.row].0)
         cell.selectionStyle = .none
  
@@ -83,13 +82,13 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! AnswersTableViewCell
         
-        print("!!!")
-        
         switch answersTuples[indexPath.row].1 {
+        
         case true:
-            cell.viewAnswerBg.backgroundColor = UIColor(red: 10/255.0, green: 23/255.0, blue: 40/255.0, alpha: 1.0)
+            cell.viewAnswerBg.backgroundColor = UIColor(red: 9.0/255.0, green: 22.0/255.0, blue: 40.0/255.0, alpha: 1.0)
             cell.answerLabel.textColor = .white
             tableView.allowsSelection = false
+            
         case false:
             cell.answerLabel.attributedText = answersTuples[indexPath.row].0.strikeThrough()
             tableView.allowsSelection = false

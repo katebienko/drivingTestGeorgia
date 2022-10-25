@@ -185,6 +185,7 @@
                     <connections>
                         <outlet property="bgView" destination="23P-OB-gvL" id="wXm-dm-iC1"/>
                         <outlet property="imageView" destination="d6R-e8-1CJ" id="3Wd-du-YRZ"/>
+                        <outlet property="nextButton" destination="KRZ-s7-ACe" id="CoI-KS-2dC"/>
                         <outlet property="questionLabel" destination="yGP-eu-tg0" id="n8Y-86-FvB"/>
                         <outlet property="questionsView" destination="qlI-gd-A1A" id="aB0-cu-3OU"/>
                         <outlet property="tableView" destination="Wzg-yS-97g" id="pUq-f4-UqZ"/>
