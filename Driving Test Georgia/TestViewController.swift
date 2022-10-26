@@ -39,6 +39,7 @@ class TestViewController: UIViewController {
                 let jsonDecoder = JSONDecoder()
                 let allTickets = try jsonDecoder.decode([Tickets].self, from: data)
                 self.tickets = allTickets
+                self.tickets.shuffle()
             } catch {
                 debugPrint(error.localizedDescription)
             }
@@ -69,24 +70,31 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AnswersTableViewCell
 
+        //show normal cell without effects
         cell.answerLabel.textColor = .black
         cell.viewAnswerBg.backgroundColor = .white
         cell.answerLabel.attributedText = nil
+        cell.selectionStyle = .none
         
+        //count questions left
         questionCountLabel.text = "\(count)/30"
         
+        //show not active button
         nextButton.alpha = 0.66
         nextButton.isEnabled = false
-        
-        answersTuples.append((tickets[ticketNumber].answers[indexPath.row].text,tickets[ticketNumber].answers[indexPath.row].correct))
         
         if ticketNumber <= tickets.count - 1 {
             questionLabel.text = tickets[ticketNumber].question
             imageView.image = UIImage(named: "\(tickets[ticketNumber].image ?? "hover.jpg")")
+            
+            //add to array of tuples answers and correct or not
+            answersTuples.append((
+                tickets[ticketNumber].answers[indexPath.row].text,
+                tickets[ticketNumber].answers[indexPath.row].correct
+            ))
         }
 
         cell.answerLabel.text = (answersTuples[indexPath.row].0)
-        cell.selectionStyle = .none
  
         return cell
     }
@@ -99,13 +107,17 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
         case true:
             cell.viewAnswerBg.backgroundColor = UIColor(red: 9.0/255.0, green: 22.0/255.0, blue: 40.0/255.0, alpha: 1.0)
             cell.answerLabel.textColor = .white
+            
             tableView.allowsSelection = false
+            
             nextButton.alpha = 1
             nextButton.isEnabled = true
             
         case false:
             cell.answerLabel.attributedText = answersTuples[indexPath.row].0.strikeThrough()
+            
             tableView.allowsSelection = false
+            
             nextButton.alpha = 1
             nextButton.isEnabled = true
         }
