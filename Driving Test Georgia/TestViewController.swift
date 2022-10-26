@@ -5,7 +5,9 @@ class TestViewController: UIViewController {
     var tickets: [Tickets] = []
     var answersTuples: [(answer: String, correct: Bool)] = []
     var ticketNumber = 0
+    var count = 0
     
+    @IBOutlet private weak var questionCountLabel: UILabel!
     @IBOutlet private var bgView: UIView!
     @IBOutlet private weak var questionsView: UIView!
     @IBOutlet private weak var questionLabel: UILabel!
@@ -47,6 +49,8 @@ class TestViewController: UIViewController {
         tableView.allowsSelection = true
         
         ticketNumber += 1
+        count += 1
+        
         if ticketNumber <= tickets.count - 1 {
             tableView.reloadData()
             answersTuples.removeAll()
@@ -68,6 +72,9 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
         cell.answerLabel.textColor = .black
         cell.viewAnswerBg.backgroundColor = .white
         cell.answerLabel.attributedText = nil
+        
+        questionCountLabel.text = "\(count)/30"
+        
         nextButton.alpha = 0.66
         nextButton.isEnabled = false
         
