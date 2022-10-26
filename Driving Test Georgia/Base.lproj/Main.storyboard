@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gx7-TM-rw3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gx7-TM-rw3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,36 +35,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pR9-SD-B4W">
-                                <rect key="frame" x="20" y="652" width="374" height="150"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категория B, B1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDS-M6-OsQ">
-                                        <rect key="frame" x="30" y="30" width="153" height="24"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driving Test Georgia App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kik-fM-RQg">
+                                <rect key="frame" x="20" y="244" width="374" height="119.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категория B, B1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDS-M6-OsQ">
+                                <rect key="frame" x="20" y="383.5" width="374" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" systemColor="systemGrayColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fip-Tu-10b">
+                                <rect key="frame" x="100" y="445" width="214" height="50"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.41145604969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="sDS-M6-OsQ" firstAttribute="leading" secondItem="pR9-SD-B4W" secondAttribute="leading" constant="30" id="DKE-wl-iko"/>
-                                    <constraint firstAttribute="height" constant="150" id="F9a-za-jSj"/>
-                                    <constraint firstItem="sDS-M6-OsQ" firstAttribute="top" secondItem="pR9-SD-B4W" secondAttribute="top" constant="30" id="QdX-TF-aWq"/>
+                                    <constraint firstAttribute="height" constant="50" id="pKr-Qf-Nhu"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" title="Пройти тест">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="testButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HVU-Ak-G2B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pR9-SD-B4W" secondAttribute="trailing" constant="20" id="Due-1B-JUY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pR9-SD-B4W" secondAttribute="bottom" constant="60" id="KET-tE-KCP"/>
-                            <constraint firstItem="pR9-SD-B4W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xcT-Eo-lCp"/>
+                            <constraint firstItem="kik-fM-RQg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3Fy-YU-TjO"/>
+                            <constraint firstItem="fip-Tu-10b" firstAttribute="top" secondItem="sDS-M6-OsQ" secondAttribute="bottom" constant="40" id="486-oN-Bsp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kik-fM-RQg" secondAttribute="trailing" constant="20" id="6TG-xl-ua4"/>
+                            <constraint firstItem="kik-fM-RQg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="B46-Uo-I9V"/>
+                            <constraint firstItem="sDS-M6-OsQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LQD-gC-bvS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fip-Tu-10b" secondAttribute="trailing" constant="100" id="UfV-Zk-XFX"/>
+                            <constraint firstItem="sDS-M6-OsQ" firstAttribute="top" secondItem="kik-fM-RQg" secondAttribute="bottom" constant="20" id="hFN-ts-CzR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sDS-M6-OsQ" secondAttribute="trailing" constant="20" id="rhe-N6-X8t"/>
+                            <constraint firstItem="fip-Tu-10b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="vA4-1B-54c"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="H7d-OJ-FGm"/>
                     <connections>
                         <outlet property="bgView" destination="8bC-Xf-vdC" id="ZyJ-Od-Xvj"/>
-                        <outlet property="viewCategoryBB1" destination="pR9-SD-B4W" id="eWn-nk-V22"/>
+                        <outlet property="testButton" destination="fip-Tu-10b" id="S9A-Eu-ar9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -89,31 +104,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qlI-gd-A1A">
                                 <rect key="frame" x="0.0" y="206" width="414" height="690"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGP-eu-tg0">
-                                        <rect key="frame" x="20" y="40" width="374" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRZ-s7-ACe">
                                         <rect key="frame" x="20" y="620" width="374" height="50"/>
-                                        <color key="backgroundColor" red="0.0" green="0.11390239689999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.41145604969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="H42-vb-i5r"/>
                                         </constraints>
-                                        <state key="normal" title="Button">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Дальше">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="nextButtonPress:" destination="2Rr-Ls-c9Y" eventType="touchUpInside" id="mHk-NI-LGh"/>
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wzg-yS-97g">
-                                        <rect key="frame" x="20" y="84" width="374" height="516"/>
+                                        <rect key="frame" x="20" y="115" width="374" height="485"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="120" id="MbJ-iD-wo5" customClass="AnswersTableViewCell" customModule="Driving_Test_Georgia" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="374" height="120"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="374" height="120"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MbJ-iD-wo5" id="Z8u-gy-WUG">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
@@ -153,19 +162,34 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ms2-9m-6Z7">
+                                        <rect key="frame" x="20" y="30" width="374" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGP-eu-tg0">
+                                        <rect key="frame" x="20" y="71" width="374" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
+                                    <constraint firstItem="Ms2-9m-6Z7" firstAttribute="top" secondItem="qlI-gd-A1A" secondAttribute="top" constant="30" id="02o-Ap-Zvy"/>
                                     <constraint firstItem="Wzg-yS-97g" firstAttribute="leading" secondItem="qlI-gd-A1A" secondAttribute="leading" constant="20" id="9rg-15-JcJ"/>
                                     <constraint firstItem="yGP-eu-tg0" firstAttribute="leading" secondItem="qlI-gd-A1A" secondAttribute="leading" constant="20" id="JXw-Yc-DDJ"/>
                                     <constraint firstItem="KRZ-s7-ACe" firstAttribute="leading" secondItem="qlI-gd-A1A" secondAttribute="leading" constant="20" id="QMm-3i-GLB"/>
                                     <constraint firstAttribute="trailing" secondItem="Wzg-yS-97g" secondAttribute="trailing" constant="20" id="bsI-0o-bed"/>
-                                    <constraint firstItem="yGP-eu-tg0" firstAttribute="top" secondItem="qlI-gd-A1A" secondAttribute="top" constant="40" id="cF7-Fg-mTg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ms2-9m-6Z7" secondAttribute="trailing" constant="20" id="fT2-7i-lVt"/>
                                     <constraint firstAttribute="trailing" secondItem="yGP-eu-tg0" secondAttribute="trailing" constant="20" id="gSv-uh-XTY"/>
                                     <constraint firstItem="KRZ-s7-ACe" firstAttribute="top" secondItem="Wzg-yS-97g" secondAttribute="bottom" constant="20" id="jQb-HC-Yta"/>
                                     <constraint firstItem="Wzg-yS-97g" firstAttribute="top" secondItem="yGP-eu-tg0" secondAttribute="bottom" constant="20" id="k4e-tl-bhV"/>
                                     <constraint firstAttribute="trailing" secondItem="KRZ-s7-ACe" secondAttribute="trailing" constant="20" id="kpg-UH-2C2"/>
+                                    <constraint firstItem="yGP-eu-tg0" firstAttribute="top" secondItem="Ms2-9m-6Z7" secondAttribute="bottom" constant="20" id="vpq-yn-Tae"/>
                                     <constraint firstAttribute="bottom" secondItem="KRZ-s7-ACe" secondAttribute="bottom" constant="20" id="x0c-W4-s2M"/>
+                                    <constraint firstItem="Ms2-9m-6Z7" firstAttribute="leading" secondItem="qlI-gd-A1A" secondAttribute="leading" constant="20" id="zmk-bR-sam"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -199,9 +223,6 @@
     <resources>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

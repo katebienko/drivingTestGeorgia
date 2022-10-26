@@ -2,25 +2,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var testButton: UIButton!
     var allQuestions: [String] = []
 
-    @IBOutlet private weak var viewCategoryBB1: UIView!
     @IBOutlet private var bgView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setDesignViews()
-        tapViewCategoryBB1()
+        testButton.layer.cornerRadius = testButton.frame.height / 2
+        testButton.backgroundColor = UIColor(red: 251.0/255.0, green: 224.0/255.0, blue: 94.0/255.0, alpha: 1.0)
     }
     
-    private func tapViewCategoryBB1() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        viewCategoryBB1.isUserInteractionEnabled = true
-        viewCategoryBB1.addGestureRecognizer(tap)
-    }
-    
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+    @IBAction func testButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
        
         if let testViewController = storyboard.instantiateViewController(identifier: "TestViewController") as? TestViewController {
@@ -28,9 +22,6 @@ class ViewController: UIViewController {
             navigationController?.pushViewController(testViewController, animated: true)
         }
     }
-    
-    private func setDesignViews() {
-        viewCategoryBB1.layer.cornerRadius = 30
-    }
+
 }
 

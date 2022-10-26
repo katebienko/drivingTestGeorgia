@@ -21,6 +21,9 @@ class TestViewController: UIViewController {
         
         loadJSON()
         designsElements()
+        
+        nextButton.backgroundColor = UIColor(red: 251.0/255.0, green: 224.0/255.0, blue: 94.0/255.0, alpha: 1.0)
+        nextButton.layer.cornerRadius = nextButton.frame.height / 2
     }
     
     private func designsElements() {
@@ -65,12 +68,14 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
         cell.answerLabel.textColor = .black
         cell.viewAnswerBg.backgroundColor = .white
         cell.answerLabel.attributedText = nil
+        nextButton.alpha = 0.66
+        nextButton.isEnabled = false
         
         answersTuples.append((tickets[ticketNumber].answers[indexPath.row].text,tickets[ticketNumber].answers[indexPath.row].correct))
         
         if ticketNumber <= tickets.count - 1 {
             questionLabel.text = tickets[ticketNumber].question
-            imageView.image = UIImage(named: "\(String(describing: tickets[ticketNumber].image))")
+            imageView.image = UIImage(named: "\(tickets[ticketNumber].image ?? "hover.jpg")")
         }
 
         cell.answerLabel.text = (answersTuples[indexPath.row].0)
@@ -88,10 +93,14 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
             cell.viewAnswerBg.backgroundColor = UIColor(red: 9.0/255.0, green: 22.0/255.0, blue: 40.0/255.0, alpha: 1.0)
             cell.answerLabel.textColor = .white
             tableView.allowsSelection = false
+            nextButton.alpha = 1
+            nextButton.isEnabled = true
             
         case false:
             cell.answerLabel.attributedText = answersTuples[indexPath.row].0.strikeThrough()
             tableView.allowsSelection = false
+            nextButton.alpha = 1
+            nextButton.isEnabled = true
         }
     }
 }
