@@ -3,8 +3,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var testButton: UIButton!
-    var allQuestions: [String] = []
-
+    @IBOutlet weak var imageLines: UIImageView!
     @IBOutlet private var bgView: UIView!
     
     override func viewDidLoad() {
@@ -12,6 +11,8 @@ class ViewController: UIViewController {
         
         testButton.layer.cornerRadius = testButton.frame.height / 2
         testButton.backgroundColor = UIColor(red: 251.0/255.0, green: 224.0/255.0, blue: 94.0/255.0, alpha: 1.0)
+        
+        imageLines.image = UIImage(named: "imgs.png")
     }
     
     @IBAction func testButton(_ sender: Any) {
@@ -22,6 +23,5 @@ class ViewController: UIViewController {
             navigationController?.pushViewController(testViewController, animated: true)
         }
     }
-
 }
 
