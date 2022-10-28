@@ -79,9 +79,9 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-CE-Q0W">
-                                <rect key="frame" x="0.0" y="662" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="612" width="375" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="4ls-4W-OpV"/>
+                                    <constraint firstAttribute="height" constant="200" id="4ls-4W-OpV"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -91,9 +91,9 @@
                             <constraint firstItem="bbv-CE-Q0W" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8UY-P1-VYb"/>
                             <constraint firstItem="6cB-Mi-6az" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Gf7-oN-S8m"/>
                             <constraint firstAttribute="bottom" secondItem="bbv-CE-Q0W" secondAttribute="bottom" id="Lwm-cL-D39"/>
-                            <constraint firstItem="bbv-CE-Q0W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="S5w-oe-n5Z"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6cB-Mi-6az" secondAttribute="trailing" id="cwL-w2-iVF"/>
                             <constraint firstItem="6cB-Mi-6az" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="erw-LC-eaz"/>
+                            <constraint firstItem="bbv-CE-Q0W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vVe-zB-XB4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="H7d-OJ-FGm"/>
@@ -106,7 +106,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Mn8-7T-Tj1"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="37.5"/>
+            <point key="canvasLocation" x="136.80000000000001" y="36.945812807881772"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="Tc5-75-x3h">
@@ -116,7 +116,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6R-e8-1CJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6R-e8-1CJ">
                                 <rect key="frame" x="0.0" y="44" width="375" height="175"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
@@ -139,7 +139,7 @@
                                             <action selector="nextButtonPress:" destination="2Rr-Ls-c9Y" eventType="touchUpInside" id="mHk-NI-LGh"/>
                                         </connections>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wzg-yS-97g">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wzg-yS-97g">
                                         <rect key="frame" x="20" y="111.66666666666671" width="335" height="391.33333333333326"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>

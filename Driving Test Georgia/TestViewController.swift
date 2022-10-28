@@ -75,7 +75,8 @@ class TestViewController: UIViewController {
             answersTuples.removeAll()
             correctAnswer.removeAll()
         } else {
-            navigationController?.popToRootViewController(animated: true)
+            print("закончились вопросики")
+            //navigationController?.popToRootViewController(animated: true)
         }
     }
 }
