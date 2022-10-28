@@ -10,14 +10,14 @@ class TestViewController: UIViewController {
     var indexCorrectAnswer: Int = 0
     var mistakes: Int = 0
     
-    @IBOutlet private weak var mistakesLabel: UILabel!
-    @IBOutlet private weak var questionCountLabel: UILabel!
     @IBOutlet private var bgView: UIView!
     @IBOutlet private weak var questionsView: UIView!
     @IBOutlet private weak var questionLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var nextButton: UIButton!
+    @IBOutlet private weak var mistakesLabel: UILabel!
+    @IBOutlet private weak var questionCountLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,13 +62,27 @@ class TestViewController: UIViewController {
         }
     }
     
+    private func buttonCondition(isActive: Bool) {
+        if isActive == true {
+            nextButton.alpha = 1
+            nextButton.isEnabled = true
+        } else {
+            nextButton.alpha = 0.5
+            nextButton.isEnabled = false
+        }
+    }
+    
     @IBAction func nextButtonPress(_ sender: Any) {
         showAlert()
-           
+        buttonCondition(isActive: false)
+         
         tableView.allowsSelection = true
         
         ticketNumber += 1
         count += 1
+        
+        questionCountLabel.text = "\(count)/30"
+        mistakesLabel.text = "Ошибок: \(mistakes)"
         
         if ticketNumber <= tickets.count - 1 {
             tableView.reloadData()
@@ -76,7 +90,6 @@ class TestViewController: UIViewController {
             correctAnswer.removeAll()
         } else {
             print("закончились вопросики")
-            //navigationController?.popToRootViewController(animated: true)
         }
     }
 }
@@ -89,41 +102,33 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AnswersTableViewCell
-
+        
         cell.answerLabel.textColor = .black
         cell.viewAnswerBg.backgroundColor = .white
         cell.answerLabel.attributedText = nil
         cell.selectionStyle = .none
         
-        nextButton.alpha = 0.5
-        nextButton.isEnabled = false
-        
-        questionCountLabel.text = "\(count)/30"
-        mistakesLabel.text = "Ошибок: \(mistakes)"
-
         if ticketNumber <= tickets.count - 1 {
             questionLabel.text = tickets[ticketNumber].question
             imageView.image = UIImage(named: "\(tickets[ticketNumber].image ?? "hover.jpg")")
-            
+
             //add to array of tuples answers and correct or not
             answersTuples.append((
                 tickets[ticketNumber].answers[indexPath.row].text,
                 tickets[ticketNumber].answers[indexPath.row].correct
             ))
-            
+
             if tickets[ticketNumber].answers[indexPath.row].correct == true {
                 correctAnswer.append((
                     tickets[ticketNumber].answers[indexPath.row].text,
                     tickets[ticketNumber].answers[indexPath.row].correct
                 ))
-                
+
                 indexCorrectAnswer = indexPath.row
             }
-            
-            // КРАШИТСЯ - обновляется tableView если из видимости уходит cell
-            cell.answerLabel.text = (answersTuples[indexPath.row].0)
         }
-
+        
+        cell.answerLabel.text = (answersTuples[indexPath.row].0)
         return cell
     }
 
@@ -134,29 +139,26 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
         switch answersTuples[indexPath.row].1 {
         
         case true:
+            buttonCondition(isActive: true)
+            
             cell.viewAnswerBg.backgroundColor = UIColor(red: 9.0/255.0, green: 22.0/255.0, blue: 40.0/255.0, alpha: 1.0)
             cell.answerLabel.textColor = .white
             
             tableView.allowsSelection = false
             
-            nextButton.alpha = 1
-            nextButton.isEnabled = true
-            
         case false:
+            buttonCondition(isActive: true)
             mistakes += 1
             
             cell.answerLabel.attributedText = answersTuples[indexPath.row].0.strikeThrough()
             
             tableView.allowsSelection = false
-
+ 
             //show correct answer
             let indexPathForCorAnswer = IndexPath(row: indexCorrectAnswer, section: 0)
             let currentCell = tableView.cellForRow(at: indexPathForCorAnswer) as! AnswersTableViewCell
             currentCell.viewAnswerBg.backgroundColor = UIColor(red: 9.0/255.0, green: 22.0/255.0, blue: 40.0/255.0, alpha: 1.0)
             currentCell.answerLabel.textColor = .white
-            
-            nextButton.alpha = 1
-            nextButton.isEnabled = true
         }
     }
 }
