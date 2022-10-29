@@ -10,9 +10,9 @@ class TestViewController: UIViewController {
     var indexCorrectAnswer: Int = 0
     var mistakes: Int = 0
     
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet private var bgView: UIView!
     @IBOutlet private weak var questionsView: UIView!
-    @IBOutlet private weak var questionLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var nextButton: UIButton!
@@ -21,6 +21,12 @@ class TestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.backgroundColor =  UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+        
+        questionsView.backgroundColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+        textView.textColor = .black
+        questionCountLabel.textColor = .black
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -109,7 +115,7 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         
         if ticketNumber <= tickets.count - 1 {
-            questionLabel.text = tickets[ticketNumber].question
+            textView.text = tickets[ticketNumber].question
             imageView.image = UIImage(named: "\(tickets[ticketNumber].image ?? "hover.jpg")")
 
             //add to array of tuples answers and correct or not
@@ -127,7 +133,7 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
                 indexCorrectAnswer = indexPath.row
             }
         }
-        
+
         cell.answerLabel.text = (answersTuples[indexPath.row].0)
         return cell
     }
