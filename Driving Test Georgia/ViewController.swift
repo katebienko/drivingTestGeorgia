@@ -12,8 +12,6 @@ class ViewController: UIViewController {
         
         self.navigationItem.backButtonTitle = "Назад"
         
-
-        
         titleTExt.textColor = .black
         bgView.backgroundColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 247.0/255.0, alpha: 1.0)
         

@@ -9,9 +9,10 @@ class TestViewController: UIViewController {
     var correctAnswer: [(answer: String, correct: Bool)] = []
     var indexCorrectAnswer: Int = 0
     var mistakes: Int = 0
+    var strokeCellIndex: Int? = nil
     
-    @IBOutlet weak var textView: UITextView!
     @IBOutlet private var bgView: UIView!
+    @IBOutlet private weak var textView: UITextView!
     @IBOutlet private weak var questionsView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var tableView: UITableView!
@@ -27,12 +28,37 @@ class TestViewController: UIViewController {
         questionsView.backgroundColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 247.0/255.0, alpha: 1.0)
         textView.textColor = .black
         questionCountLabel.textColor = .black
-        
+       
         tableView.delegate = self
         tableView.dataSource = self
         
         loadJSON()
+        fullAnswerTuples()
         buttonDesign()
+        buttonCondition(isActive: false)
+    }
+    
+    private func fullAnswerTuples() {
+        if ticketNumber < tickets.count {
+            textView.text = tickets[ticketNumber].question
+            imageView.image = UIImage(named: "\(tickets[ticketNumber].image ?? "hover.jpg")")
+
+            for i in 0 ..< tickets[ticketNumber].answers.count  {
+                answersTuples.append((
+                    tickets[ticketNumber].answers[i].text,
+                    tickets[ticketNumber].answers[i].correct
+                ))
+
+                if tickets[ticketNumber].answers[i].correct == true {
+                    correctAnswer.append((
+                        tickets[ticketNumber].answers[i].text,
+                        tickets[ticketNumber].answers[i].correct
+                    ))
+
+                    indexCorrectAnswer = i
+                }
+            }
+        }
     }
     
     private func buttonDesign() {
@@ -55,17 +81,15 @@ class TestViewController: UIViewController {
     }
     
     private func showAlert() {
-        if mistakes == 4 {
-            let alert = UIAlertController(title: "Тест не пройден!",
-                                          message: "Вы допустили больше трех ошибок. Попробуйте еще раз!",
-                                          preferredStyle: .alert)
+        let alert = UIAlertController(title: "Тест не пройден!",
+                                      message: "Вы допустили больше трех ошибок. Попробуйте еще раз!",
+                                      preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "На главную", style: .cancel, handler: { _ in
-                self.navigationController?.popToRootViewController(animated: true)
-            }))
-    
-            present(alert, animated: true)
-        }
+        alert.addAction(UIAlertAction(title: "На главную", style: .cancel, handler: { _ in
+            self.navigationController?.popToRootViewController(animated: true)
+        }))
+        
+        present(alert, animated: true)
     }
     
     private func buttonCondition(isActive: Bool) {
@@ -79,21 +103,27 @@ class TestViewController: UIViewController {
     }
     
     @IBAction func nextButtonPress(_ sender: Any) {
-        showAlert()
+        if mistakes == 12 {
+            showAlert()
+        }
+        
         buttonCondition(isActive: false)
          
-        tableView.allowsSelection = true
-        
-        ticketNumber += 1
         count += 1
+        ticketNumber += 1
         
         questionCountLabel.text = "\(count)/30"
         mistakesLabel.text = "Ошибок: \(mistakes)"
         
-        if ticketNumber <= tickets.count - 1 {
-            tableView.reloadData()
+        if ticketNumber < tickets.count {
             answersTuples.removeAll()
             correctAnswer.removeAll()
+            fullAnswerTuples()
+           
+            strokeCellIndex = nil
+            tableView.allowsSelection = true
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+            tableView.reloadData()
         } else {
             print("закончились вопросики")
         }
@@ -109,40 +139,30 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AnswersTableViewCell
         
-        cell.answerLabel.textColor = .black
-        cell.viewAnswerBg.backgroundColor = .white
-        cell.answerLabel.attributedText = nil
-        cell.selectionStyle = .none
-        
-        if ticketNumber <= tickets.count - 1 {
-            textView.text = tickets[ticketNumber].question
-            imageView.image = UIImage(named: "\(tickets[ticketNumber].image ?? "hover.jpg")")
 
-            //add to array of tuples answers and correct or not
-            answersTuples.append((
-                tickets[ticketNumber].answers[indexPath.row].text,
-                tickets[ticketNumber].answers[indexPath.row].correct
-            ))
-
-            if tickets[ticketNumber].answers[indexPath.row].correct == true {
-                correctAnswer.append((
-                    tickets[ticketNumber].answers[indexPath.row].text,
-                    tickets[ticketNumber].answers[indexPath.row].correct
-                ))
-
-                indexCorrectAnswer = indexPath.row
+        if strokeCellIndex != nil {
+            if indexPath.row == strokeCellIndex! {
+               // cell.answerLabel.attributedText = answersTuples[indexPath.row].answer.strikeThrough()
+                cell.answerLabel.textColor = .red
+            } else {
+                cell.answerLabel.attributedText = nil
             }
+        } else {
+            cell.answerLabel.textColor = .black
+            cell.viewAnswerBg.backgroundColor = .white
+            cell.answerLabel.attributedText = nil
+            cell.selectionStyle = .none
         }
 
-        cell.answerLabel.text = (answersTuples[indexPath.row].0)
+        cell.answerLabel.text = (answersTuples[indexPath.row].answer)
         return cell
     }
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! AnswersTableViewCell
-        
-        switch answersTuples[indexPath.row].1 {
+
+        switch answersTuples[indexPath.row].correct {
         
         case true:
             buttonCondition(isActive: true)
@@ -153,18 +173,18 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
             tableView.allowsSelection = false
             
         case false:
+            tableView.allowsSelection = false
             buttonCondition(isActive: true)
             mistakes += 1
             
-            cell.answerLabel.attributedText = answersTuples[indexPath.row].0.strikeThrough()
+            //cell.answerLabel.attributedText = answersTuples[indexPath.row].answer.strikeThrough()
+            cell.answerLabel.textColor = .red
+            strokeCellIndex = indexPath.row
             
-            tableView.allowsSelection = false
- 
-            //show correct answer
-            let indexPathForCorAnswer = IndexPath(row: indexCorrectAnswer, section: 0)
-            let currentCell = tableView.cellForRow(at: indexPathForCorAnswer) as! AnswersTableViewCell
-            currentCell.viewAnswerBg.backgroundColor = UIColor(red: 9.0/255.0, green: 22.0/255.0, blue: 40.0/255.0, alpha: 1.0)
-            currentCell.answerLabel.textColor = .white
+            if let currentCell = tableView.cellForRow(at: IndexPath(row: indexCorrectAnswer, section: 0)) as? AnswersTableViewCell {
+                currentCell.viewAnswerBg.backgroundColor = UIColor(red: 9.0/255.0, green: 22.0/255.0, blue: 40.0/255.0, alpha: 1.0)
+                currentCell.answerLabel.textColor = .white
+            }
         }
     }
 }
