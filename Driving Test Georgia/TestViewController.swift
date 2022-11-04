@@ -73,7 +73,8 @@ class TestViewController: UIViewController {
                 let jsonDecoder = JSONDecoder()
                 let allTickets = try jsonDecoder.decode([Tickets].self, from: data)
                 self.tickets = allTickets
-                self.tickets.shuffle()
+                print(tickets.count)
+             //   self.tickets.shuffle()
             } catch {
                 debugPrint(error.localizedDescription)
             }
@@ -138,8 +139,6 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AnswersTableViewCell
-        
-        print(indexCorrectAnswer)
 
         if strokeCellIndex != nil {
             if indexPath.row == strokeCellIndex! {
@@ -183,7 +182,6 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
             strokeCellIndex = indexPath.row
             
             if let currentCell = tableView.cellForRow(at: IndexPath(row: indexCorrectAnswer, section: 0)) as? AnswersTableViewCell {
-                print(currentCell)
                 currentCell.viewAnswerBg.backgroundColor = UIColor(red: 9.0/255.0, green: 22.0/255.0, blue: 40.0/255.0, alpha: 1.0)
                 currentCell.answerLabel.textColor = .white
             }
