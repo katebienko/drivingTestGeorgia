@@ -139,13 +139,14 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AnswersTableViewCell
         
+        print(indexCorrectAnswer)
 
         if strokeCellIndex != nil {
             if indexPath.row == strokeCellIndex! {
                // cell.answerLabel.attributedText = answersTuples[indexPath.row].answer.strikeThrough()
                 cell.answerLabel.textColor = .red
             } else {
-                cell.answerLabel.attributedText = nil
+               // cell.answerLabel.attributedText = nil
             }
         } else {
             cell.answerLabel.textColor = .black
@@ -182,6 +183,7 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
             strokeCellIndex = indexPath.row
             
             if let currentCell = tableView.cellForRow(at: IndexPath(row: indexCorrectAnswer, section: 0)) as? AnswersTableViewCell {
+                print(currentCell)
                 currentCell.viewAnswerBg.backgroundColor = UIColor(red: 9.0/255.0, green: 22.0/255.0, blue: 40.0/255.0, alpha: 1.0)
                 currentCell.answerLabel.textColor = .white
             }
