@@ -56,7 +56,8 @@ class TestViewController: UIViewController {
                     ))
 
                     indexCorrectAnswer = i
-                    print(indexCorrectAnswer)
+                    print("Номер вопроса: \(tickets[ticketNumber].number) ------- Правильный ответ: \(indexCorrectAnswer)")
+
                 }
             }
         }
