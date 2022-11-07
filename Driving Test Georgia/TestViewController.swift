@@ -73,7 +73,6 @@ class TestViewController: UIViewController {
                 let jsonDecoder = JSONDecoder()
                 let allTickets = try jsonDecoder.decode([Tickets].self, from: data)
                 self.tickets = allTickets
-                print(tickets.count)
              //   self.tickets.shuffle()
             } catch {
                 debugPrint(error.localizedDescription)
