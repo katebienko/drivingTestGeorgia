@@ -56,6 +56,7 @@ class TestViewController: UIViewController {
                     ))
 
                     indexCorrectAnswer = i
+                    print(indexCorrectAnswer)
                 }
             }
         }
@@ -73,7 +74,7 @@ class TestViewController: UIViewController {
                 let jsonDecoder = JSONDecoder()
                 let allTickets = try jsonDecoder.decode([Tickets].self, from: data)
                 self.tickets = allTickets
-             //   self.tickets.shuffle()
+                self.tickets.shuffle()
             } catch {
                 debugPrint(error.localizedDescription)
             }
@@ -103,7 +104,7 @@ class TestViewController: UIViewController {
     }
     
     @IBAction func nextButtonPress(_ sender: Any) {
-        if mistakes == 12 {
+        if mistakes == 5 {
             showAlert()
         }
         
