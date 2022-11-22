@@ -10567,7 +10567,7 @@
   },
   {
     "number": 551,
-    "image": "http://teoria.on.ge/files/new/8432c64b54146c4df4df153f1bf89cdc.jpg",
+    "image": "img551.jpg",
     "question": "Данный дорожный знак обозначает:",
     "answers": [
       {
@@ -10586,7 +10586,7 @@
   },
   {
     "number": 552,
-    "image": "http://teoria.on.ge/files/new/088b6c2277dc39ad59d0e9acf6a26e65.jpg",
+    "image": "img552.jpg",
     "question": "Данный дорожный знак обозначает:",
     "answers": [
       {
@@ -10605,7 +10605,7 @@
   },
   {
     "number": 553,
-    "image": "http://teoria.on.ge/files/new/d827adf3bce00215ed0c23c32e08724d.jpg",
+    "image": "img553.jpg",
     "question": "Данный дорожный знак обозначает:",
     "answers": [
       {
@@ -10624,7 +10624,7 @@
   },
   {
     "number": 554,
-    "image": "http://teoria.on.ge/files/new/f69ac7221f14c18d1e4c8d93117559c6.jpg",
+    "image": "img554.jpg",
     "question": "Из данных дорожных знаков, какой обозначает выезд на полосу дороги предназначенной для маршрутных транспортных средств?",
     "answers": [
       {
@@ -10647,7 +10647,7 @@
   },
   {
     "number": 555,
-    "image": "http://teoria.on.ge/files/new/ab09a818b4a1da3462b479d68d67d82e.jpg",
+    "image": "img555.jpg",
     "question": "Действие дорожных знаков, стоящих на полосе движения распространяется:",
     "answers": [
       {
@@ -10662,7 +10662,7 @@
   },
   {
     "number": 556,
-    "image": "http://teoria.on.ge/files/new/96a94ae2777014f501fc40877cd6170a.jpg",
+    "image": "img556.jpg",
     "question": "Данный дорожный знак указывает:",
     "answers": [
       {
@@ -10681,7 +10681,7 @@
   },
   {
     "number": 557,
-    "image": "http://teoria.on.ge/files/new/4b41fa5af6c55cf24a09d282f427f777.jpg",
+    "image": "img557.jpg",
     "question": "Данный дорожный знак обозначает:",
     "answers": [
       {
@@ -10700,7 +10700,7 @@
   },
   {
     "number": 558,
-    "image": "http://teoria.on.ge/files/new/915b07493147c8dd5715846dd389f43b.jpg",
+    "image": "img558.jpg",
     "question": "Данный дорожный знак обозначает:",
     "answers": [
       {
@@ -10719,8 +10719,8 @@
   },
   {
     "number": 559,
-    "image": "http://teoria.on.ge/files/new/eac6b507c3bb612b42221c183267cc9a.jpg",
-    "question": "Из данных дорожных знаков, какой обозначает завершение того населенного пункта, в котором не действуют правила установленные  для движения в населенном пункте?",
+    "image": "img559.jpg",
+    "question": "Из данных дорожных знаков, какой обозначает завершение того населенного пункта, в котором не действуют правила установленные для движения в населенном пункте?",
     "answers": [
       {
         "text": "I",
@@ -10738,7 +10738,7 @@
   },
   {
     "number": 560,
-    "image": "http://teoria.on.ge/files/new/81f45d82711773d2dff4ec46aceabdc4.jpg",
+    "image": "img560.jpg",
     "question": "Из данных дорожных знаков какой обозначает территорию, в рамках которой регламентирована стоянка?",
     "answers": [
       {
