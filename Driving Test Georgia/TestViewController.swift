@@ -109,6 +109,15 @@ class TestViewController: UIViewController {
             showAlert()
         }
         
+        if ticketNumber == 3 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+           
+            if let winningViewController = storyboard.instantiateViewController(identifier: "WinningViewController") as? WinningViewController {
+                winningViewController.modalPresentationStyle = .fullScreen
+                navigationController?.pushViewController(winningViewController, animated: true)
+            }
+        }
+        
         buttonCondition(isActive: false)
          
         count += 1
