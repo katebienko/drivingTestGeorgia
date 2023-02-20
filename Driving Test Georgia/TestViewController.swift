@@ -10,6 +10,7 @@ class TestViewController: UIViewController {
     var indexCorrectAnswer: Int = 0
     var mistakes: Int = 0
     var strokeCellIndex: Int? = nil
+    var wasCorrectAnswers = 0
     
     @IBOutlet private var bgView: UIView!
     @IBOutlet private weak var textView: UITextView!
@@ -105,11 +106,14 @@ class TestViewController: UIViewController {
     }
     
     @IBAction func nextButtonPress(_ sender: Any) {
-        if mistakes == 5 {
+        if mistakes == 3 {
             showAlert()
         }
         
-        if ticketNumber == 3 {
+        if ticketNumber == 29 {
+            UserDefaults.standard.set(wasCorrectAnswers, forKey: "count")
+            print(wasCorrectAnswers)
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
            
             if let winningViewController = storyboard.instantiateViewController(identifier: "WinningViewController") as? WinningViewController {
@@ -150,6 +154,9 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AnswersTableViewCell
 
+        //set question text from the top
+        textView.setContentOffset(.zero, animated: true)
+        
         if strokeCellIndex != nil {
             if indexPath.row == strokeCellIndex! {
                // cell.answerLabel.attributedText = answersTuples[indexPath.row].answer.strikeThrough()
@@ -175,6 +182,8 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
         switch answersTuples[indexPath.row].correct {
         
         case true:
+            wasCorrectAnswers += 1
+            
             buttonCondition(isActive: true)
             
             cell.viewAnswerBg.backgroundColor = UIColor(red: 9.0/255.0, green: 22.0/255.0, blue: 40.0/255.0, alpha: 1.0)

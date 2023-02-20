@@ -2,9 +2,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var titleTExt: UILabel!
-    @IBOutlet weak var testButton: UIButton!
-    @IBOutlet weak var imageLines: UIImageView!
+    @IBOutlet private weak var titleTExt: UILabel!
+    @IBOutlet private weak var testButton: UIButton!
+    @IBOutlet private weak var imageLines: UIImageView!
     @IBOutlet private var bgView: UIView!
     
     override func viewDidLoad() {
