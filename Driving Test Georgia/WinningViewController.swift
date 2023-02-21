@@ -42,6 +42,7 @@ class WinningViewController: UIViewController {
     }
     
     private func bgSettings() {
-        bgView.backgroundColor = UIColor(red: 13.0/255.0, green: 29.0/255.0, blue: 54.0/255.0, alpha: 1.0)
+      //  bgView.backgroundColor = UIColor(red: 13.0/255.0, green: 29.0/255.0, blue: 54.0/255.0, alpha: 1.0)
+        bgView.backgroundColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 247.0/255.0, alpha: 1.0)
     }
 }

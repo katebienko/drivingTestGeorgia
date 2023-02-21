@@ -36,9 +36,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-CE-Q0W">
-                                <rect key="frame" x="0.0" y="462" width="375" height="350"/>
+                                <rect key="frame" x="-125" y="337" width="500" height="600"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="4ls-4W-OpV"/>
+                                    <constraint firstAttribute="height" constant="600" id="L9o-OP-p60"/>
+                                    <constraint firstAttribute="width" constant="500" id="XMG-sv-5jQ"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cB-Mi-6az">
@@ -87,12 +88,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="bbv-CE-Q0W" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8UY-P1-VYb"/>
+                            <constraint firstItem="bbv-CE-Q0W" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1pW-ID-XeT"/>
+                            <constraint firstItem="bbv-CE-Q0W" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-125" id="3co-m7-GIg"/>
                             <constraint firstItem="6cB-Mi-6az" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Gf7-oN-S8m"/>
-                            <constraint firstAttribute="bottom" secondItem="bbv-CE-Q0W" secondAttribute="bottom" id="Lwm-cL-D39"/>
+                            <constraint firstAttribute="bottom" secondItem="bbv-CE-Q0W" secondAttribute="bottom" constant="-125" id="ODS-gp-Di1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6cB-Mi-6az" secondAttribute="trailing" id="cwL-w2-iVF"/>
                             <constraint firstItem="6cB-Mi-6az" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-100" id="gO9-3a-g1Q"/>
-                            <constraint firstItem="bbv-CE-Q0W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vVe-zB-XB4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="H7d-OJ-FGm"/>
@@ -277,29 +278,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы успешно прошли тест! Попробуйте еще раз" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikv-VE-kcu">
-                                <rect key="frame" x="20" y="415" width="335" height="40.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы успешно прошли тест!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikv-VE-kcu">
+                                <rect key="frame" x="20" y="415" width="335" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Поздравляем!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WJ-UC-jZn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Так держать!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WJ-UC-jZn">
                                 <rect key="frame" x="20" y="359" width="335" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qhj-5b-r88">
-                                <rect key="frame" x="20" y="485.66666666666674" width="335" height="152"/>
+                                <rect key="frame" x="20" y="465.33333333333326" width="335" height="152"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваш результат:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuE-Nv-8H6">
-                                        <rect key="frame" x="107" y="39.999999999999943" width="121.33333333333331" height="21"/>
+                                        <rect key="frame" x="107" y="40" width="121.33333333333331" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCORE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2t1-dh-79Y">
-                                        <rect key="frame" x="117" y="75.999999999999943" width="101.33333333333331" height="36"/>
+                                        <rect key="frame" x="117" y="76.000000000000057" width="101.33333333333331" height="36"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -335,7 +336,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Kbb-kj-l1W"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Kbb-kj-l1W" firstAttribute="trailing" secondItem="qP5-1E-LX8" secondAttribute="trailing" id="3J8-h9-vcA"/>
                             <constraint firstItem="Kbb-kj-l1W" firstAttribute="bottom" secondItem="Igb-2o-IBU" secondAttribute="bottom" constant="20" id="9wM-ns-o4L"/>
@@ -371,11 +372,11 @@
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

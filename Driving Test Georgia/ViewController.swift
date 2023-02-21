@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         testButton.layer.cornerRadius = testButton.frame.height / 2
         testButton.backgroundColor = UIColor(red: 251.0/255.0, green: 224.0/255.0, blue: 94.0/255.0, alpha: 1.0)
         
-      //  imageLines.image = UIImage(named: "carStripes.svg")
+        imageLines.image = UIImage(named: "abstract.svg")
     }
     
     @IBAction func testButton(_ sender: Any) {
