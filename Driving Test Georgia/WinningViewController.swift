@@ -34,7 +34,7 @@ class WinningViewController: UIViewController {
     }
     
     private func imageSettings() {
-        imageSuccess.image = UIImage(named: "success.png")
+        imageSuccess.image = UIImage(named: "winner.png")
     }
     
     private func navigationBarSettings() {
