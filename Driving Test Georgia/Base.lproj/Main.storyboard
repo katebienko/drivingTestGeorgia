@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f4y-22-hon">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gx7-TM-rw3">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -333,6 +333,7 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonPress:" destination="2Rr-Ls-c9Y" eventType="touchUpInside" id="CjT-ir-plW"/>
+                                    <action selector="startFromBeginning:" destination="f4y-22-hon" eventType="touchUpInside" id="TMX-sE-hbz"/>
                                 </connections>
                             </button>
                         </subviews>

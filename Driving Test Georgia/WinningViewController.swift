@@ -1,7 +1,7 @@
 import UIKit
 
 class WinningViewController: UIViewController {
-
+    
     @IBOutlet private var bgView: UIView!
     @IBOutlet private weak var scoreView: UIView!
     @IBOutlet private weak var scoreLabel: UILabel!
@@ -43,5 +43,14 @@ class WinningViewController: UIViewController {
     
     private func bgSettings() {
         bgView.backgroundColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+    }
+    
+    @IBAction func startFromBeginning(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let testViewController = storyboard.instantiateViewController(identifier: "TestViewController") as? TestViewController {
+            testViewController.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(testViewController, animated: true)
+        }
     }
 }
