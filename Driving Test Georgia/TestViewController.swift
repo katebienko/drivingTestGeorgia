@@ -1,7 +1,7 @@
 import UIKit
 
 class TestViewController: UIViewController {
-        
+
     var tickets: [Tickets] = []
     var answersTuples: [(answer: String, correct: Bool)] = []
     var ticketNumber = 0
@@ -11,12 +11,16 @@ class TestViewController: UIViewController {
     var mistakes: Int = 0
     var strokeCellIndex: Int? = nil
     var wasCorrectAnswers = 0
-    
+    var isExcluded = false
+    let defaults = UserDefaults.standard
+    var excludedItems: [Int] = []
+
     @IBOutlet private var bgView: UIView!
     @IBOutlet private weak var textView: UITextView!
     @IBOutlet private weak var questionsView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var excludeSwitch: UISwitch!
     @IBOutlet private weak var nextButton: UIButton!
     @IBOutlet private weak var mistakesLabel: UILabel!
     @IBOutlet private weak var questionCountLabel: UILabel!
@@ -37,6 +41,8 @@ class TestViewController: UIViewController {
         fullAnswerTuples()
         buttonDesign()
         buttonCondition(isActive: false)
+        
+        excludedItems = defaults.array(forKey: "excludedItems") as? [Int] ?? []
     }
     
     private func fullAnswerTuples() {
@@ -75,7 +81,7 @@ class TestViewController: UIViewController {
                 let data = try Data(contentsOf: url)
                 let jsonDecoder = JSONDecoder()
                 let allTickets = try jsonDecoder.decode([Tickets].self, from: data)
-                self.tickets = allTickets
+                self.tickets = allTickets.filter( { excludedItems.firstIndex(of: $0.number) == nil } )
                 self.tickets.shuffle()
             } catch {
                 debugPrint(error.localizedDescription)
@@ -105,11 +111,28 @@ class TestViewController: UIViewController {
         }
     }
     
+    @IBAction func setExclude(_ sender: UISwitch) {
+        isExcluded = sender.isOn
+    }
+
     @IBAction func nextButtonPress(_ sender: Any) {
         if mistakes == 3 {
             showAlert()
         }
         
+        let ticketId = tickets[ticketNumber].number
+        let i = excludedItems.firstIndex(of: ticketId)
+
+        // save exclusions 
+        if isExcluded {
+            excludedItems.append(ticketId)
+            defaults.set(excludedItems, forKey: "excluded")
+        } else if i != nil {
+            excludedItems.remove(at: i!)
+        }
+        defaults.set(excludedItems, forKey: "excluded")
+        excludeSwitch.setOn(false, animated: true)
+
         if ticketNumber == 29 {
             UserDefaults.standard.set(wasCorrectAnswers, forKey: "count")
             print(wasCorrectAnswers)
@@ -121,12 +144,12 @@ class TestViewController: UIViewController {
                 navigationController?.pushViewController(winningViewController, animated: true)
             }
         }
-        
+
         buttonCondition(isActive: false)
-         
+
         count += 1
         ticketNumber += 1
-        
+
         questionCountLabel.text = "\(count)/30"
         mistakesLabel.text = "Ошибок: \(mistakes)"
         
